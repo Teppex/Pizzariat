@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pizzeria.title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ pizzeria.title }}</h1>
+    <p>{{ pizzeria.body }}</p>
+    <hr>
+    <a href="/">Mene takaisin</a>
+{% endblock %}

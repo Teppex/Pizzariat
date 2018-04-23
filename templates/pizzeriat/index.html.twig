@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mypizza Pizzeriat{% endblock %}
+
+{% block body %}
+    {% if pizzeriat %}
+        <table id="pizzeriat" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Pizzerian nimi</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pizzeria in pizzeriat %}
+                    <tr>
+                        <td>{{ pizzeria.title }}</td>
+                        <td>
+                            <a href="/pizzeria/{{ pizzeria.id }}" class="btn btn-dark">Näytä</a>
+                            <a href="/pizzeria/edit/{{ pizzeria.id }}" class="btn btn-light">Muokkaa</a>
+                            <a href="#" class="btn btn-danger delete-pizzeria" data-id="{{ pizzeria.id }}">Poista</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Pizzeriaa ei voitu näyttää</p>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script src="/js/main.js"></script>
+{% endblock %}
